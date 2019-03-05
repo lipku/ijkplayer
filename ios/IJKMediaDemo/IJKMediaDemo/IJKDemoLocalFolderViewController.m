@@ -126,7 +126,7 @@
 
             fileName = [fileName stringByStandardizingPath];
             
-            [IJKVideoViewController presentFromViewController:self withTitle:[NSString stringWithFormat:@"File: %@", fileName] URL:[NSURL fileURLWithPath:fileName] completion:^{
+            [IJKVideoViewController presentFromViewController:self withTitle:[NSString stringWithFormat:@"File: %@", fileName] URL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"ijkio:torrent:%@", fileName]] completion:^{  //ijkio:torrent:  lihengz
             }];
             
         } break;

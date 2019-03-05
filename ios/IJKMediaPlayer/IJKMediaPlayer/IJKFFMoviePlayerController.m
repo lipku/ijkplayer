@@ -160,7 +160,7 @@ void IJKFFIOStatCompleteRegister(void (*cb)(const char *url,
         return nil;
 
     // Detect if URL is file path and return proper string for it
-    NSString *aUrlString = [aUrl isFileURL] ? [aUrl path] : [aUrl absoluteString];
+    NSString *aUrlString = [aUrl isFileURL] ? [aUrl relativePath] : [aUrl absoluteString]; //[aUrl path]   lihengz
 
     return [self initWithContentURLString:aUrlString
                               withOptions:options];

@@ -28,6 +28,7 @@ extern IjkURLProtocol ijkio_androidio_protocol;
 #endif
 extern IjkURLProtocol ijkio_cache_protocol;
 extern IjkURLProtocol ijkio_httphook_protocol;
+extern IjkURLProtocol ijkio_torrent_protocol;
 
 int ijkio_alloc_url(IjkURLContext **ph, const char *url) {
     if (!ph) {
@@ -47,6 +48,10 @@ int ijkio_alloc_url(IjkURLContext **ph, const char *url) {
         h = (IjkURLContext *)calloc(1, sizeof(IjkURLContext));
         h->prot = &ijkio_httphook_protocol;
         h->priv_data = calloc(1, ijkio_httphook_protocol.priv_data_size);
+    }else if (!strncmp(url, "torrent:", strlen("torrent:"))) {
+        h = (IjkURLContext *)calloc(1, sizeof(IjkURLContext));
+        h->prot = &ijkio_torrent_protocol;
+        h->priv_data = calloc(1, ijkio_torrent_protocol.priv_data_size);
     }
 #ifdef __ANDROID__
       else if (!strncmp(url, "androidio:", strlen("androidio:"))) {

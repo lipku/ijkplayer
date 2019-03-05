@@ -29,6 +29,7 @@
     self = [super init];
     if (self) {
         self.title = @"Input URL";
+        //self.textView.text = @"ijkio:torrent:http://torrent.google.com.btba.xiaoeryi.com/download?//p=dXBsb2FkLzIwMTkvMDEvMjQv44CQQlTlkKfjgJFbNzIwcOS4reWtl13mjqDpo5%2Fln47luIIt56e75Yqo5Z%2BO5biC77ya6Ie05ZG95byV5pOOKOa4ry3lj7ApLU1vcnRhbCBFbmdpbmVzLTIuNjFHQi50b3JyZW50";
         
         [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Play" style:UIBarButtonItemStyleDone target:self action:@selector(onClickPlayButton)]];
     }
@@ -45,7 +46,8 @@
     
     if ([scheme isEqualToString:@"http"]
         || [scheme isEqualToString:@"https"]
-        || [scheme isEqualToString:@"rtmp"]) {
+        || [scheme isEqualToString:@"rtmp"]
+        || [scheme isEqualToString:@"ijkio"]) {
         [IJKVideoViewController presentFromViewController:self withTitle:[NSString stringWithFormat:@"URL: %@", url] URL:url completion:^{
 //            [self.navigationController popViewControllerAnimated:NO];
         }];
